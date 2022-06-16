@@ -1,4 +1,4 @@
-package Singleton;
+package Singleton.draft;
 
 public class SingletonClass {
   private static volatile SingletonClass instance;
