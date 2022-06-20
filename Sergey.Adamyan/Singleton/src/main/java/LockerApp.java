@@ -3,7 +3,6 @@ import model.Locker;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 /**
  * Locker application for online shopping centers for example 'Globbing', 'ONEX'
