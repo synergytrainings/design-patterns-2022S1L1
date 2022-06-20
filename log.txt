@@ -1,2 +1,0 @@
-Number 1 slot was left from 'First Globbing' locker
-Number 10 slot was empty in 'Second Onex' locker, please check it
