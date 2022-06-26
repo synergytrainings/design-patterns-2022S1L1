@@ -3,7 +3,7 @@ package singltone;
 import java.util.Objects;
 
 public class PrimeMinister {
-    private static PrimeMinister primeMinister;
+    private static volatile PrimeMinister primeMinister;
 
     private String name;
 
@@ -16,12 +16,13 @@ public class PrimeMinister {
     }
 
     public static PrimeMinister getPresident() {
+        if(Objects.isNull(primeMinister))
         synchronized (PrimeMinister.class) {
             if (Objects.isNull(primeMinister)) {
                 primeMinister = new PrimeMinister();
             }
-            return primeMinister;
         }
+        return primeMinister;
     }
 
     public String getName() {
