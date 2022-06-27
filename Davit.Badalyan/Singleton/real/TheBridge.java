@@ -12,7 +12,7 @@ public class TheBridge {
     return Singleton.INSTANCE;
   }
 
-  public synchronized void open() {
+  public void open() {
     if (!isOpen) {
       System.out.println(
           "Open the bridge: "
@@ -30,7 +30,7 @@ public class TheBridge {
     }
   }
 
-  private void sleep() {
+  private synchronized void sleep() {
     try {
       Thread.sleep(2000);
     } catch (InterruptedException e) {
