@@ -1,10 +1,10 @@
-package singleton;
+package singltone;
 
 import java.util.Objects;
 
 public class Government {
 
-    private static Government government;
+    private static volatile Government government;
 
     private PrimeMinister primeMinister;
 
@@ -15,12 +15,13 @@ public class Government {
     }
 
     public static Government getGovernment() {
+        if(Objects.isNull(government))
         synchronized (Government.class) {
             if (Objects.isNull(government)) {
                 government = new Government();
             }
-            return government;
         }
+        return government;
     }
 
     public void setDecision(String decision) {

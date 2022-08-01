@@ -1,4 +1,4 @@
-package singleton;
+package singltone;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,9 +19,6 @@ public class Main {
 
         System.out.println(government.getPresident().getName() + "\n"
                             + government1.getPresident().getName());
-
-        Integer[] a = {8};
-        Object[] o = a;
 
     }
 }
