@@ -14,7 +14,6 @@ public class AdapterExample {
 
         laptopBattery.chargeLaptop(charger);
 
-        //adapter for iphone charge telephone
         LightningCharger lightningCharger = new IphoneCharger();
         LightningChargerAdapter lightningChargerAdapter = new LightningChargerAdapter(lightningCharger);
 
