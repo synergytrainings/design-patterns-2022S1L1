@@ -1,0 +1,24 @@
+package main.model;
+
+import java.util.ArrayList;
+import java.util.Map;
+
+public class RubikCube {
+
+    private Integer sideSize;
+
+    private Map<String, ArrayList<Map<Integer, String>>> state;
+
+    public RubikCube(Integer sideSize, Map<String, ArrayList<Map<Integer, String>>> state) {
+        this.sideSize = sideSize;
+        this.state = state;
+    }
+
+    public Integer getSideSize() {
+        return sideSize;
+    }
+
+    public Map<String, ArrayList<Map<Integer, String>>> getState() {
+        return state;
+    }
+}

@@ -1,0 +1,11 @@
+package main.abstraction;
+
+import main.model.RubikCube;
+
+/**
+ * Abstraction interface
+ */
+public interface RubikCubeSolver {
+
+    void solve(RubikCube rubikCube);
+}

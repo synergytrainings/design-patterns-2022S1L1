@@ -1,0 +1,22 @@
+package main.abstraction;
+
+import main.implementation.RubikCubeSolverImpl;
+import main.model.RubikCube;
+
+public class RubikCube3x3Solver implements RubikCubeSolver {
+
+    private final RubikCubeSolverImpl rubikCubeSolverImpl;
+
+    public RubikCube3x3Solver(RubikCubeSolverImpl rubikCubeSolverImpl) {
+        this.rubikCubeSolverImpl = rubikCubeSolverImpl;
+    }
+
+    @Override
+    public void solve(RubikCube rubikCube) {
+        rubikCubeSolverImpl.solveWithEngine(rubikCube);
+    }
+
+    public void solveWithFridrichMethod(RubikCube rubikCube) {
+        rubikCubeSolverImpl.solveWithAlgorithm(rubikCube, "Fridrich");
+    }
+}

@@ -1,0 +1,10 @@
+package main.implementation;
+
+import main.model.RubikCube;
+
+public interface RubikCubeSolverImpl {
+
+    void solveWithEngine(RubikCube rubikCube);
+
+    void solveWithAlgorithm(RubikCube rubikCube, String algorithmName);
+}

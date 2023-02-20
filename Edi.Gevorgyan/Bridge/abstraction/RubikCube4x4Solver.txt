@@ -1,0 +1,22 @@
+package main.abstraction;
+
+import main.implementation.RubikCubeSolverImpl;
+import main.model.RubikCube;
+
+public class RubikCube4x4Solver implements RubikCubeSolver {
+
+    private final RubikCubeSolverImpl rubikCubeSolverImpl;
+
+    public RubikCube4x4Solver(RubikCubeSolverImpl rubikCubeSolverImpl) {
+        this.rubikCubeSolverImpl = rubikCubeSolverImpl;
+    }
+
+    @Override
+    public void solve(RubikCube rubikCube) {
+        rubikCubeSolverImpl.solveWithEngine(rubikCube);
+    }
+
+    public void solveWithYauMethod(RubikCube rubikCube) {
+        rubikCubeSolverImpl.solveWithAlgorithm(rubikCube, "Yau");
+    }
+}
