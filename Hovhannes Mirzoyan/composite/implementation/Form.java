@@ -1,8 +1,6 @@
 package patterns.composite.implementation;
 
-import patterns.composite.ValidationManager;
 import patterns.composite.interfaces.Field;
-import patterns.composite.model.ValidationContext;
 
 import java.util.List;
 import java.util.Map;
@@ -30,7 +28,9 @@ public class Form implements Field<Map<String, Object>> {
     }
 
     @Override
-    public void validate(ValidationManager validationManager, ValidationContext validationContext) {
-        fields.forEach(field -> field.validate(validationManager, validationContext));
+    public void print() {
+        System.out.println(getName() + " = " + "{");
+        fields.forEach(Field::print);
+        System.out.println("}");
     }
 }
