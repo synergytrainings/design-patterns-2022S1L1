@@ -6,12 +6,10 @@ import patterns.decorator.interfaces.Browser;
 /**
  * SpeedUpBrowserDecorator make improve your browser performance
  */
-public class SpeedUpBrowserDecorator implements Browser {
-
-    private final Browser browser;
+public class SpeedUpBrowserDecorator extends BrowserDecorator {
 
     public SpeedUpBrowserDecorator(Browser browser) {
-        this.browser = browser;
+        super(browser);
     }
 
     @Override
@@ -21,7 +19,7 @@ public class SpeedUpBrowserDecorator implements Browser {
 
         makePerformanceImprovements();
 
-        return this.browser.openTab(url,title);
+        return super.openTab(url,title);
     }
 
     @Override
@@ -29,16 +27,16 @@ public class SpeedUpBrowserDecorator implements Browser {
         Preconditions.checkNotNull(id, "Tab id can not be null");
 
         makePerformanceImprovements();
-        this.browser.closeTab(id);
+        super.closeTab(id);
     }
 
     @Override
-    public void redirectToAnotherTab(String url, String title) {
+    public Integer redirectToAnotherTab(String url, String title) {
         Preconditions.checkNotNull(url, "Tab url can not be null");
         Preconditions.checkNotNull(title, "Tab title can not be null");
 
         makePerformanceImprovements();
-        this.browser.redirectToAnotherTab(url, title);
+        return super.redirectToAnotherTab(url, title);
     }
 
     private void makePerformanceImprovements() {

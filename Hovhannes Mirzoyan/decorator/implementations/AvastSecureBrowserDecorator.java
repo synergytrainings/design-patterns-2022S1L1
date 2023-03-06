@@ -3,12 +3,10 @@ package patterns.decorator.implementations;
 import com.google.common.base.Preconditions;
 import patterns.decorator.interfaces.Browser;
 
-public class AvastSecureBrowserDecorator implements Browser {
-
-    private final Browser browser;
+public class AvastSecureBrowserDecorator extends BrowserDecorator {
 
     public AvastSecureBrowserDecorator(Browser browser) {
-        this.browser = browser;
+        super(browser);
     }
 
     @Override
@@ -18,7 +16,7 @@ public class AvastSecureBrowserDecorator implements Browser {
 
         checkIsSecure(url, title);
 
-        return browser.openTab(url, title);
+        return super.openTab(url, title);
     }
 
     @Override
@@ -26,16 +24,16 @@ public class AvastSecureBrowserDecorator implements Browser {
         Preconditions.checkNotNull(id, "Tab id can not be null");
 
         System.out.printf("AvastSecureBrowser: Close tab with %d id\n", id);
-        browser.closeTab(id);
+        super.closeTab(id);
     }
 
     @Override
-    public void redirectToAnotherTab(String url, String title) {
+    public Integer redirectToAnotherTab(String url, String title) {
         Preconditions.checkNotNull(url, "Tab url can not be null");
         Preconditions.checkNotNull(title, "Tab title can not be null");
 
         checkIsSecure(url, title);
-        browser.redirectToAnotherTab(url, title);
+        return super.redirectToAnotherTab(url, title);
     }
 
     private void checkIsSecure(String url, String title) {

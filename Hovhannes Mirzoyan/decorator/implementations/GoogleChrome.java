@@ -43,12 +43,13 @@ public class GoogleChrome implements Browser {
     }
 
     @Override
-    public void redirectToAnotherTab(String url, String title) {
+    public Integer redirectToAnotherTab(String url, String title) {
         Preconditions.checkNotNull(url, "Tab url can not be null");
         Preconditions.checkNotNull(title, "Tab title can not be null");
 
-        openTab(url, title);
         System.out.println(String.format("Redirected to tab with %s url", url));
+
+        return openTab(url, title);
     }
 
     private Integer generateNewId() {

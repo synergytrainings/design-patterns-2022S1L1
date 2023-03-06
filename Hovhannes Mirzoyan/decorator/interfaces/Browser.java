@@ -5,5 +5,5 @@ public interface Browser {
 
     void closeTab(Integer id);
 
-    void redirectToAnotherTab(String url, String title);
+    Integer redirectToAnotherTab(String url, String title);
 }
