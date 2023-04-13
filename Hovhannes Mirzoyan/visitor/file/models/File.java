@@ -19,13 +19,8 @@ public class File extends FileSystemItem {
     }
 
     @Override
-    public void close() {
-
-    }
-
-    @Override
     public String accept(FileSystemItemVisitor visitor) {
-        return visitor.visitFile(this);
+        return visitor.visit(this);
     }
 
     @Override

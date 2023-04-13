@@ -16,23 +16,28 @@ public class ContentExtractVisitor implements FileSystemItemVisitor {
     }
 
     @Override
-    public String visitFile(File file) {
+    public String visit(File file) {
         return extractContentFromFileSystemItem(file);
     }
 
     @Override
-    public String visitFolder(Folder folder) {
+    public String visit(Folder folder) {
 
         folder.getFileSystemItems().forEach(item -> {
             if (!item.isFolder()) {
                 folderContentBuilder.append(extractContentFromFileSystemItem(item));
                 folderContentBuilder.append("-----------------------------------------\n");
-            }else {
-                folderContentBuilder.append(visitFolder((Folder) item));
+            } else {
+                folderContentBuilder.append(visit((Folder) item));
             }
+
         });
 
-        return folderContentBuilder.toString();
+        String content = folderContentBuilder.toString();
+
+        cleanBuilder(folderContentBuilder);
+
+        return content;
     }
 
     private String extractContentFromFileSystemItem(FileSystemItem item) {
@@ -43,5 +48,9 @@ public class ContentExtractVisitor implements FileSystemItemVisitor {
             throw new RuntimeException(String.format("Can not extract %s file content.", item.getName()));
         }
 
+    }
+
+    private void cleanBuilder(StringBuilder builder) {
+        builder.setLength(0);
     }
 }

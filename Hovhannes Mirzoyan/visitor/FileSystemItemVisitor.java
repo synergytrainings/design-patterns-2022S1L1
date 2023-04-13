@@ -5,7 +5,9 @@ import patterns.visitor.file.models.Folder;
 
 public interface FileSystemItemVisitor {
 
-     String visitFile(File file);
+    String visit(File file);
 
-     String  visitFolder(Folder folder);
+    String visit(Folder folder);
+
 }
+

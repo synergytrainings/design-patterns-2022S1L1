@@ -22,13 +22,8 @@ public class Folder extends FileSystemItem {
     }
 
     @Override
-    public void close() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public String accept(FileSystemItemVisitor visitor) {
-        return visitor.visitFolder(this);
+        return visitor.visit(this);
     }
 
     @Override

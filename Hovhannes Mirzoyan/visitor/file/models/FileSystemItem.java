@@ -19,8 +19,6 @@ public abstract class FileSystemItem {
 
     public abstract InputStream open() throws FileNotFoundException;
 
-    public abstract void close();
-
     public abstract String accept(FileSystemItemVisitor visitor);
 
     public abstract boolean isFolder();
@@ -29,12 +27,12 @@ public abstract class FileSystemItem {
         return name;
     }
 
-    public double getSize() {
-        return size;
-    }
-
     public void setName(String name) {
         this.name = name;
+    }
+
+    public double getSize() {
+        return size;
     }
 
     public void setSize(double size) {

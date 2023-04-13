@@ -4,6 +4,8 @@ import patterns.visitor.file.models.File;
 import patterns.visitor.file.models.FileSystemItem;
 import patterns.visitor.file.models.Folder;
 
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -25,5 +27,12 @@ public class Main {
 
         //nested files structure
         System.out.println(secondFolder.accept(contentExtractVisitor));
+
+        //visitor for list
+        List<FileSystemItem> items = List.of(firstFile, secondFile, firstFolder, secondFolder);
+        StringBuilder allContentBuilder = new StringBuilder();
+
+        items.forEach(item -> allContentBuilder.append(item.accept(contentExtractVisitor)));
+        System.out.println(allContentBuilder);
     }
 }
